@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiPower, FiClock } from 'react-icons/fi';
 import {
   Container,
@@ -8,6 +8,8 @@ import {
   Content,
   Schedule,
   NextAppointment,
+  Section,
+  Appointment,
   Calendar,
 } from './styles';
 
@@ -15,6 +17,7 @@ import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
 
 const Dashboard: React.FC = () => {
+  const [selectdDate, setSelectdDate] = useState(new Date());
   const { signOut, user } = useAuth();
 
   return (
@@ -61,6 +64,52 @@ const Dashboard: React.FC = () => {
               </span>
             </div>
           </NextAppointment>
+
+          <Section>
+            <strong>Manhã</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars2.githubusercontent.com/u/48459634?s=460&u=24c476eb3d2248c9757e121d20d8970803e18801&v=4"
+                  alt="Augusto Ostapechen"
+                />
+              </div>
+            </Appointment>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars2.githubusercontent.com/u/48459634?s=460&u=24c476eb3d2248c9757e121d20d8970803e18801&v=4"
+                  alt="Augusto Ostapechen"
+                />
+              </div>
+            </Appointment>
+            <strong>Tarde</strong>
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars2.githubusercontent.com/u/48459634?s=460&u=24c476eb3d2248c9757e121d20d8970803e18801&v=4"
+                  alt="Augusto Ostapechen"
+                />
+              </div>
+            </Appointment>
+          </Section>
         </Schedule>
         <Calendar />
       </Content>
